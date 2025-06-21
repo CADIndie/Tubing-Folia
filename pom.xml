@@ -6,7 +6,7 @@
     <groupId>be.garagepoort.mcioc</groupId>
     <artifactId>tubing</artifactId>
     <packaging>pom</packaging>
-    <version>7.5.5</version>
+    <version>7.5.6</version>
     <modules>
         <module>tubing-core</module>
         <module>tubing-bungee</module>
@@ -16,8 +16,8 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencyManagement>
@@ -32,16 +32,20 @@
     </dependencyManagement>
     <repositories>
         <repository>
+            <id>repsy</id>
+            <url>https://repo.repsy.io/mvn/cadindie/maven</url>
+        </repository>
+        <repository>
             <id>staffplusplus-repo</id>
             <url>https://nexus.staffplusplus.org/repository/staffplusplus/</url>
         </repository>
-    </repositories>
+</repositories>
 
     <distributionManagement>
         <repository>
-            <id>staffplusplus-repo</id>
-            <name>Central Repository StaffPlusPlus</name>
-            <url>https://nexus.staffplusplus.org/repository/maven-releases/</url>
+            <id>repsy</id>
+            <name>CADIndie Dev</name>
+            <url>https://repo.repsy.io/mvn/cadindie/maven</url>
         </repository>
     </distributionManagement>
 

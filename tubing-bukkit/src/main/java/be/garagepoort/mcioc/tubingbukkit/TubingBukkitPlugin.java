@@ -24,10 +24,11 @@ public abstract class TubingBukkitPlugin extends JavaPlugin implements TubingPlu
 
     @Override
     public void onEnable() {
-        WrappedSchedulerBuilder schedulerBuilder = WrappedSchedulerBuilder.builder().plugin(getPlugin());
+        tubingBukkitPlugin = this;
+
+        WrappedSchedulerBuilder schedulerBuilder = WrappedSchedulerBuilder.builder().plugin(tubingBukkitPlugin);
         scheduler = schedulerBuilder.build();
 
-        tubingBukkitPlugin = this;
         beforeEnable();
         
         try {
