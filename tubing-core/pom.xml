@@ -22,6 +22,11 @@
             <artifactId>snakeyaml</artifactId>
             <version>1.30</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.NahuLD.folia-scheduler-wrapper</groupId>
+            <artifactId>folia-scheduler-wrapper</artifactId>
+            <version>v0.0.3</version>
+        </dependency>
     </dependencies>
 
     <build>

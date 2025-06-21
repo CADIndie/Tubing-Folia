@@ -9,11 +9,11 @@ public class TubingBukkitUtil implements ITubingBukkitUtil {
 
     @Override
     public void runAsync(Runnable runnable) {
-        Bukkit.getScheduler().runTaskAsynchronously(TubingBukkitPlugin.getPlugin(), runnable);
+        TubingBukkitPlugin.getScheduler().runTaskAsynchronously(runnable);
     }
 
     @Override
     public void runTaskLater(Runnable runnable, int ticks) {
-        Bukkit.getScheduler().runTaskLater(TubingBukkitPlugin.getPlugin(), runnable, ticks);
+        TubingBukkitPlugin.getScheduler().runTaskLater(runnable, ticks);
     }
 }

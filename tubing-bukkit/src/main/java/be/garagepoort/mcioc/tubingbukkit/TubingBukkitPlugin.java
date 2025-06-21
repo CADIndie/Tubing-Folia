@@ -5,6 +5,8 @@ import be.garagepoort.mcioc.TubingPlugin;
 import be.garagepoort.mcioc.configuration.files.ConfigurationException;
 import be.garagepoort.mcioc.tubingbukkit.annotations.BeforeTubingReload;
 import be.garagepoort.mcioc.tubingbukkit.load.TubingBukkitBeanLoader;
+import me.nahu.scheduler.wrapper.WrappedScheduler;
+import me.nahu.scheduler.wrapper.WrappedSchedulerBuilder;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +16,7 @@ public abstract class TubingBukkitPlugin extends JavaPlugin implements TubingPlu
 
     private static TubingBukkitPlugin tubingBukkitPlugin;
     private IocContainer iocContainer = new IocContainer();
+    private WrappedScheduler scheduler;
 
     public static TubingBukkitPlugin getPlugin() {
         return tubingBukkitPlugin;
@@ -21,6 +24,9 @@ public abstract class TubingBukkitPlugin extends JavaPlugin implements TubingPlu
 
     @Override
     public void onEnable() {
+        WrappedSchedulerBuilder schedulerBuilder = WrappedSchedulerBuilder.builder().plugin(getPlugin());
+        scheduler = schedulerBuilder.build();
+
         tubingBukkitPlugin = this;
         beforeEnable();
         
@@ -78,6 +84,10 @@ public abstract class TubingBukkitPlugin extends JavaPlugin implements TubingPlu
 
     public IocContainer getIocContainer() {
         return iocContainer;
+    }
+
+    public static WrappedScheduler getScheduler() {
+        return TubingBukkitPlugin.getPlugin().scheduler;
     }
 
 }
